@@ -99,7 +99,7 @@ const Problem = () => {
               <textarea
                 className="border border-black rounded-lg w-full h-[15vh] p-3"
                 value={problem?.sampleOutput}
-                disabled
+                disabled                      // This attribute makes the textarea read-only and prevents users from editing the content.
               />
             </div>
             <div className="w-1/2 h-[70vh]">

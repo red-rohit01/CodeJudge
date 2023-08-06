@@ -28,7 +28,7 @@ const Navbar = () => {
         <h1 className="bg-white text-black font-bold p-2 rounded-xl flex gap-4 items-center">
           Hi {currentUser?.name}
           &nbsp;{" "}
-          <FiLogOut className="text-xl cursor-pointer" onClick={logout  } />
+          <FiLogOut className="text-xl cursor-pointer" onClick={logout  } title="LogOut" />
         </h1>
       ) : (
         <button

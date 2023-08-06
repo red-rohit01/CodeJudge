@@ -10,7 +10,7 @@ const WORKERS_NUMBER = 5;
 const QUEUE_CONFIG = {
   defaultJobOptions: {
     removeOnComplete: true,
-    attempts: 3,
+    attempts: 5,
     redis: { host: "localhost", port: 6379 },
   },
 };
