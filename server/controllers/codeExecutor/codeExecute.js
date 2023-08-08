@@ -128,13 +128,10 @@ ${output}
 Your Output: 
 ${exOut}`;
 
-const languageErrMsg = `Please select a language / valid language.
-Or may be this language is not yet supported !`;
+const languageErrMsg = `Please select a valid language.`;
 
 const execCodeAgainstTestcases = (filePath, testcases, language) => {
   if (!details[language]) return { msg: languageErrMsg };
-
-  //   let containerId = languageSpecificDetails[language].containerId();
 
   if (!filePath.includes("\\") && !filePath.includes("/"))
     filePath = path.join(codeDirectory, filePath);
@@ -191,7 +188,7 @@ const execCodeAgainstTestcases = (filePath, testcases, language) => {
         }
       } catch (error) {
         console.error(
-          "Caught some errors while deleting files from Docker Container",
+          "Caught some errors while deleting files",
           error
         );
       }
