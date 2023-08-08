@@ -20,9 +20,10 @@ const queryQueue = new Queue("query-queue", QUEUE_CONFIG);
 queryQueue.process(WORKERS_NUMBER, async (data) => {
   let submission;
   try {
-    const { filepath, problemId, submissionId } = data.data;
+    //const { filepath, problemId, submissionId } = data.data;
+    const { filepath, problemId, submissionId } = data;
     submission = await Submission.findOne({ _id: submissionId }).populate(
-      "problem"
+      "problem"                             //submission variable will contain the full Submission document, and the problem field will be replaced with the actual data of the related Problem document(like problem.timelimit)
     );
     const testCases = await TestCase.find({ problem: problemId });
 
@@ -70,6 +71,7 @@ queryQueue.process(WORKERS_NUMBER, async (data) => {
 
 const addQueryqueue = async (data) => {
   await queryQueue.add(data);
+  //await queryQueue.process(data);
 };
 
 module.exports = { addQueryqueue };
